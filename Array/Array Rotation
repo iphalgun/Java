@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Solution{
+    public static int[] leftrotation(int arr[], int d)
+    {
+        int n=arr.length;
+        int[] rotated=new int[n];
+
+        System.arraycopy(arr,d,rotated,0,n-d);
+        System.arraycopy(arr,0,rotated,n-d,d);
+
+        return rotated;
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int d=sc.nextInt();
+
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        arr=leftrotation(arr,d);
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
