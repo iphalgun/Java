@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Source {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n  = sc.nextInt();
+        int arr[] = new int[n];
+
+        for(int i = 0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        minminmax(n,arr);
+    }
+
+    static void minminmax(int n , int[] arr){
+        // Write Your Code here 
+        if(n<2)
+        {
+            System.out.println("Not Possible");
+            return;
+        }
+        int ans=arr[0]+arr[1];
+        for(int i=1;i+1<n;i++)
+        {
+            ans=Math.min(ans,(arr[i]+arr[i+1]));
+        }
+        System.out.println(ans);
+        
+    }
+}
