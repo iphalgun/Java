@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class Source {
+   public static void main(String args[]) {
+       Scanner s = new Scanner(System.in);
+       String str = s.nextLine();
+       removeSpaces(str);
+   }
+
+   // Method to remove all the spaces in the given string
+   static void removeSpaces(String str) {
+       // Write your code here
+       str= str.replaceAll("\\s","");
+       System.out.println(str);
+   }
+}
