@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class Source {
+   public static void main(String args[]) {
+       Scanner s = new Scanner(System.in);
+       String str1 = s.nextLine();
+       String str2 = s.nextLine();
+       areAnagrams(str1, str2);
+   }
+
+   // Method to check if two strings are anagrams of each other
+   static void areAnagrams(String str1, String str2) {
+      
+      HashMap<Character,Integer> hm1=new HashMap<Character,Integer>();  
+      
+      HashMap<Character,Integer> hm2=new HashMap<Character,Integer>();
+      
+     char char1[]= str1.toCharArray();
+     char char2[]= str2.toCharArray();
+     
+     for(int i=0;i<char1.length;i++)
+     {
+         if(hm1.get(char1[i])==null)
+         {
+             hm1.put(char1[i],1);
+         }
+         else
+         {
+             Integer c= (int)hm1.get(char1[i]);
+             {
+               hm1.put(char1[i],++c);  
+             }
+             
+         }
+     }
+     
+     
+      for(int i=0;i<char2.length;i++)
+     {
+         if(hm2.get(char2[i])==null)
+         {
+             hm2.put(char2[i],1);
+         }
+         else
+         {
+             Integer c= (int)hm2.get(char2[i]);
+             {
+               hm2.put(char2[i],++c);  
+             }
+             
+         }
+     } 
+     
+     if(hm1.equals(hm2))
+     {
+         System.out.print("true");
+     }
+     else
+     {
+         System.out.print("false");
+     }
+     
+     
+     
+   }
+}
