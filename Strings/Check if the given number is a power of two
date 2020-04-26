@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Source {
+   public static void main(String[] args) {
+       Scanner s = new Scanner(System.in);
+       String str = s.nextLine();
+       powerOfTwo(str);
+   }
+    
+   // Method to check whether the given number is a power of two or not
+   static void powerOfTwo(String str) {
+       // Write your code here
+       /*int n = Integer.parseInt(str);
+       if (n == 0) 
+            System.out.println("false");
+          
+        while (n != 1) 
+        { 
+            if (n % 2 != 0) 
+                System.out.println("false");
+                
+            n = n / 2; 
+        } 
+        System.out.println("true"); */
+        
+    StringBuilder sb = new StringBuilder(str);
+       int carry = 0, digit, temp = 0;
+       char c;
+       while (sb.charAt(sb.length() - 1) != '1') {
+           if ((Character.getNumericValue(sb.charAt(sb.length() - 1))) % 2 != 0) {
+               System.out.println("false");
+               return;
+           }
+           carry = 0;
+           for (int i = 0; i < sb.length(); i++) {
+               
+               digit = Character.getNumericValue(sb.charAt(i));
+               
+               temp = (carry * 10 + digit) / 2;
+               
+               c = (char) (temp + '0');
+               sb.setCharAt(i, c);
+               
+               carry = (carry * 10 + digit) % 2;
+           }
+       }
+       System.out.println("true");
+   }
+}
